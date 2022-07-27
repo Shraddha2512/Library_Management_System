@@ -144,19 +144,19 @@ namespace cs_con_sblib
             String ans = "yes";
             do
             {
-                Console.WriteLine(" ---------------------");
-                Console.WriteLine("| 1. View Books       |");
-                Console.WriteLine("| 2.Add Books           |");
-                Console.WriteLine("| 3.Delete Books        |");
-                Console.WriteLine("| 4.Main Menu           |");
-                Console.WriteLine("| 5. View newspapers       |");
-                Console.WriteLine("| 6.Add newspaper          |");
-                Console.WriteLine("| 7.Delete newspaper        |");
-                Console.WriteLine("| Enter your Choice   |");
-                Console.WriteLine(" ---------------------");
+                Console.WriteLine("****************************");
+                Console.WriteLine("| 1.View Books             |");
+                Console.WriteLine("| 2.Add Books              |");
+                Console.WriteLine("| 3.Delete Books           |");
+                Console.WriteLine("| 4.View newspapers        |");
+                Console.WriteLine("| 5.Add newspaper          |");
+                Console.WriteLine("| 6.Delete newspaper       |");
+                Console.WriteLine("| 7.Main Menu              |");
+                Console.WriteLine("| Please Enter your Choice |");
+                Console.WriteLine("****************************");
                 Console.WriteLine("");
                 int n = int.Parse(Console.ReadLine());
-                switch(n)
+                 switch(n)
                 {
                     case 1:
                         Console.WriteLine("Book name " + " " + "Available copies");
@@ -210,10 +210,9 @@ namespace cs_con_sblib
                     }
 
                     break;
-                    case 4:
-                        return;
+                   
 
-                    case 5:
+                    case 4:
                         Console.WriteLine("Newspaper name " + " " + "Available copies");
 
                         for (int i = 0; i < 5; i++)
@@ -227,7 +226,7 @@ namespace cs_con_sblib
 
                         break;
 
-                    case 6:
+                    case 5:
                         Console.WriteLine("Enter the name of the books");
                         String bn = Console.ReadLine();
                         Console.WriteLine("Enter the no. of copies you want to add?");
@@ -246,7 +245,7 @@ namespace cs_con_sblib
                         }
                         break;
 
-                    case 7:
+                    case 6:
                         Console.WriteLine("Enter the name of the books");
                         String bn1 = Console.ReadLine();
                         Console.WriteLine("Enter the no. of copies you want to remove");
@@ -265,6 +264,9 @@ namespace cs_con_sblib
                         }
 
                         break;
+
+                    case 7:
+                        return;
                 }
 
 
