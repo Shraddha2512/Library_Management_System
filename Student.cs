@@ -44,7 +44,7 @@ namespace cs_con_sblib
         {
             if (bor.Equals("b"))
             {
-                Console.WriteLine("SORRY!! THIS BOOK IS ONLY FOR REFERENCE.");
+                Console.WriteLine("Sorry!! This Book is only for reference.");
                 return;
             }
             Console.WriteLine(this.bksBorrowed);
