@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +15,13 @@ namespace cs_con_sblib
             do
             {
                 Console.WriteLine("");
-                Console.WriteLine("|-----------------------------------------------------|");
+                Console.WriteLine("*******************************************************");
                 Console.WriteLine("|---------WELCOME TO LIBRARY MANAGEMENT SYSTEM--------|");
                 Console.WriteLine("| Please login into the any of the following accounts:|");
                 Console.WriteLine("| 1.Admin                                             |");
-                //Console.WriteLine("| 2.Faculty                                           |");
-                Console.WriteLine("| 3.Student                                           |");
+                Console.WriteLine("| 2.Student                                           |");
                 Console.WriteLine("| Note: Please enter your choice accordingly          |");
-                Console.WriteLine("|-----------------------------------------------------|");
+                Console.WriteLine("*******************************************************");
                 Console.WriteLine("");
                 int ch = int.Parse(Console.ReadLine());
                 Program p = new Program();
@@ -32,24 +31,8 @@ namespace cs_con_sblib
                     case 1:
                         p.adm(ade);
                         break;
-                    //case 2:
-                    //    Console.WriteLine("Please enter your name");
-                    //    String name = Console.ReadLine();
-                    //    Console.WriteLine("Please enter your password");
-                    //    String pwd = Console.ReadLine();
-                    //    int w = ade.facchk(name, pwd);
-                    //    if (w == 1)
-                    //        p.fac(ade);
-                    //    else if (w == 2)
-                    //    {
-                    //        Console.WriteLine("NEW USER!!!!");
-                    //        ade.createFaculty(name, pwd);
-                    //        p.fac(ade);
-                    //    }
-                    //    else
-                    //        Console.WriteLine("Wrong password or username!!!!!");
-                    //    break;
-                    case 3:
+                    
+                    case 2:
                         Console.WriteLine("Please enter your name");
                         String nam = Console.ReadLine();
                         Console.WriteLine("Please enter your Password");
@@ -88,18 +71,18 @@ namespace cs_con_sblib
             do
             {
                 Console.WriteLine("");
-                Console.WriteLine("---------------------------------------------------");
+                Console.WriteLine("***************************************************");
                 Console.WriteLine("|        Please make a choice from the following  |");
                 Console.WriteLine("|1.Search Books                                   |");
                 Console.WriteLine("|2.Return Books                                   |");
                 Console.WriteLine("|3.Borrow Books                                   |");
                 Console.WriteLine("|4.Renew a Book                                   |");
                 Console.WriteLine("|5.View book Issue Details                        |");
-                Console.WriteLine("|7.View Newspaper                                 |");
-                Console.WriteLine("|8.Add Newspaper                                  |");
-                Console.WriteLine("|9.Delete Newspaper                               |");
-                Console.WriteLine("|6.Return to main menu                            |");
-                Console.WriteLine("---------------------------------------------------");
+                Console.WriteLine("|6.View Newspaper                                 |");
+                Console.WriteLine("|7.Add Newspaper                                  |");
+                Console.WriteLine("|8.Delete Newspaper                               |");
+                Console.WriteLine("|9.Return to main menu                            |");
+                Console.WriteLine("***************************************************");
                 Console.WriteLine("");
                 int ch = int.Parse(Console.ReadLine());
 
@@ -131,17 +114,12 @@ namespace cs_con_sblib
                         l.borrow(y, t);
                         break;
 
-
-
-
                     case 4:
                         l.Details();
                         break;
-                    case 6:
+                   
 
-                        return;
-
-                    //case 7:
+                    //case 6:
                     //    Console.WriteLine("Newspaper name " + " " + "Available copies");
 
                     //    for (int i = 0; i < 5; i++)
@@ -156,7 +134,7 @@ namespace cs_con_sblib
                     //    break;
 
 
-                    //case 8:
+                    //case 7:
                     //    Console.WriteLine("Enter the name of the books");
                     //    String bn = Console.ReadLine();
                     //    Console.WriteLine("Enter the no. of copies you want to add?");
@@ -175,7 +153,7 @@ namespace cs_con_sblib
                     //    }
                     //    break;
 
-                    //case 9:
+                    //case 8:
                     //    Console.WriteLine("Enter the name of the books");
                     //    String bn1 = Console.ReadLine();
                     //    Console.WriteLine("Enter the no. of copies you want to remove");
@@ -195,7 +173,9 @@ namespace cs_con_sblib
 
                     //    break;
 
+                    case 9:
 
+                        return;
 
 
 
@@ -211,30 +191,26 @@ namespace cs_con_sblib
 
             do
             {
-                Console.WriteLine("*****");
-                //Console.WriteLine("| 1.Manage Faculty              |");
-                Console.WriteLine("| 2.Manage Student              |");
-                Console.WriteLine("| 3.Maintain Books and Newspaper             |");
-                Console.WriteLine("| 4.Return to main menu         |");
-               
-               
-                Console.WriteLine("| Please enter your choice       |");
-                Console.WriteLine("*****");
+                Console.WriteLine("************************************");
+                Console.WriteLine("| 1.Manage Student                 |");
+                Console.WriteLine("| 2.Maintain Books and Newspaper   |");
+                Console.WriteLine("| 3.Return to main menu            |");
+                Console.WriteLine("| Please enter your choice         |");
+                Console.WriteLine("************************************");
                 Console.WriteLine("");
                 int ch = int.Parse(Console.ReadLine());
 
                 switch (ch)
                 {
-                    //case 1:
-                    //    ade.viewFac();
-                    //    break;
-                    case 2:
+                    
+                    case 1:
                         ade.viewStu();
                         break;
-                    case 3:
+                    case 2:
                         ade.catalogue();
                         break;
-                   
+                    case 3:
+                        return;
 
                 }
                 Console.WriteLine("Do you want to continue??");
