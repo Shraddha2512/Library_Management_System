@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,7 +44,7 @@ namespace cs_con_sblib
         {
             if (bor.Equals("b"))
             {
-                Console.WriteLine("SORRY!! THIS BOOK IS ONLY FOR REFERENCE.");
+                Console.WriteLine("Sorry!! This Newspaper is only for reference.");
                 return;
             }
             Console.WriteLine(this.newBorrowed);
@@ -56,7 +56,7 @@ namespace cs_con_sblib
             }
             else
             {
-                Console.WriteLine("Sorry! You cannot borrow anymore books!!!!");
+                 Console.WriteLine("Sorry! You cannot borrow anymore Newspapers!!!!");
                 Console.WriteLine("");
             }
         }
