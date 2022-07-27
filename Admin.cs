@@ -272,13 +272,6 @@ namespace cs_con_sblib
 
             } while (ans.Equals("yes"));
 
-
-
         }
-
-
-        
-
     }
-
 }
