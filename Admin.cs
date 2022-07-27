@@ -227,7 +227,7 @@ namespace cs_con_sblib
                         break;
 
                     case 5:
-                        Console.WriteLine("Enter the name of the books");
+                        Console.WriteLine("Enter the name of the newspaper");
                         String bn = Console.ReadLine();
                         Console.WriteLine("Enter the no. of copies you want to add?");
                         int nern = int.Parse(Console.ReadLine());
@@ -246,7 +246,7 @@ namespace cs_con_sblib
                         break;
 
                     case 6:
-                        Console.WriteLine("Enter the name of the books");
+                        Console.WriteLine("Enter the name of the newspaper");
                         String bn1 = Console.ReadLine();
                         Console.WriteLine("Enter the no. of copies you want to remove");
                         int np2 = int.Parse(Console.ReadLine());
