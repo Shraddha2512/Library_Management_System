@@ -22,7 +22,7 @@ namespace cs_con_sblib
 
         public LibraryBooks()
         {
-            char va = 'a';
+            char va = '1';
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < 1; j++)
@@ -36,7 +36,7 @@ namespace cs_con_sblib
                 }
             }
 
-            char nva = 'a';
+            char nva = '1';
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < 1; j++)

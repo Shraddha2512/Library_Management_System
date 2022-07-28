@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
-    <Compile Include="Faculty.cs" />
     <Compile Include="ILib.cs" />
     <Compile Include="INew.cs" />
     <Compile Include="LibraryBooks.cs" />

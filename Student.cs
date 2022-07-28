@@ -48,7 +48,7 @@ namespace cs_con_sblib
                 return;
             }
             Console.WriteLine(this.bksBorrowed);
-            if (this.bksBorrowed < 2)
+            if (this.bksBorrowed < 3)
             {
                 bookIssue[this.bksBorrowed, 0] = bor;
                 bookIssue[this.bksBorrowed, 1] = t;
@@ -72,24 +72,7 @@ namespace cs_con_sblib
                     }
                 }
             }
-            for (int i = 0; i < 1; i++)
-            {
-                for (int j = 0; j < 1; j++)
-                {
-                    if (this.bookIssue[i, j].Equals(s))
-                    {
-                        TimeSpan? f;
-
-                        f = DateTime.Today - (DateTime)this.bookIssue[i, j + 1];
-
-                        if (f?.TotalDays > 15)
-                        {
-                            Console.WriteLine("Your penalty is" + f?.TotalDays * 2);
-                            Console.WriteLine("");
-                        }
-                    }
-                }
-            }
+           
             bksBorrowed--;
         }
         public void Details()
@@ -106,5 +89,67 @@ namespace cs_con_sblib
 
             Console.WriteLine("");
         }
+
+        
+
+        //public bool searchN(string s)
+        //{
+        //    bool a = true;
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        for (int j = 0; j < 1; j++)
+        //        {
+        //            String ff = newsp[i, j].ToString();
+        //            if (ff.Equals(s))
+        //            {
+        //                a = true;
+        //                return a;
+        //            }
+        //            else
+        //                a = false;
+        //        }
+        //    }
+        //    return a;
+        //}
+
+        public void borrowN(String bor, DateTime t)
+        {
+            if (bor.Equals("b"))
+            {
+                Console.WriteLine("Sorry!! This Newspaper is only for reference.");
+                return;
+            }
+            Console.WriteLine(this.newBorrowed);
+            if (this.newBorrowed < 2)
+            {
+                newspIssue[this.newBorrowed, 0] = bor;
+                newspIssue[this.newBorrowed, 1] = t;
+                this.newBorrowed++;
+            }
+            else
+            {
+                Console.WriteLine("Sorry! You cannot borrow anymore Newspapers!!!!");
+                Console.WriteLine("");
+            }
+        }
+        public void returnN(string s)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 1; j++)
+                {
+                    if (newsp[i, j].Equals(s))
+                    {
+                        newsp[i, j + 1] = (int)newsp[i, j + 1] + 1;
+                    }
+                }
+            }
+           
+            bksBorrowed--;
+        }
     }
 }
+
+
+
+        

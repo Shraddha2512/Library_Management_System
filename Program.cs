@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cs_con_sblib
 {
-    class Program
+    class Program : LibraryBooks
     {
         static void Main(string[] args)
         {
@@ -37,7 +37,7 @@ namespace cs_con_sblib
                         String nam = Console.ReadLine();
                         Console.WriteLine("Please enter your Password");
                         String pw = Console.ReadLine();
-                        int b = ade.facchk(nam, pw);
+                        int b = ade.Stuchk(nam, pw);
                         if (b == 1)
                             p.Stu(ade);
                         else if (b == 2)
@@ -71,16 +71,26 @@ namespace cs_con_sblib
             do
             {
                 Console.WriteLine("");
+                Console.WriteLine("Books" + "       " + " Book ID");
+                string[] myArray = { "Dogs-           1", "Cats-           2", "Birds-          3", "Harry Potter-   4", "Iron Man-       5" };
+                foreach (string item in myArray)
+                    Console.WriteLine(item);
+                Console.WriteLine();
+
+                Console.WriteLine("Newspapers" + "               " + " Newspaper ID");
+                string[] myArray1 = { "Lokmat-                    1", "Hindustan Times-           2", "T.O.I.-                    3", "Mumbai Mirror-             4", "Times Now-                 5" };
+                foreach (string item in myArray1)
+                    Console.WriteLine(item);
                 Console.WriteLine("***************************************************");
                 Console.WriteLine("|        Please make a choice from the following  |");
                 Console.WriteLine("|1.Search Books                                   |");
                 Console.WriteLine("|2.Return Books                                   |");
                 Console.WriteLine("|3.Borrow Books                                   |");
-                Console.WriteLine("|4.Renew a Book                                   |");
-                Console.WriteLine("|5.View book Issue Details                        |");
-                Console.WriteLine("|6.View Newspaper                                 |");
-                Console.WriteLine("|7.Add Newspaper                                  |");
-                Console.WriteLine("|8.Delete Newspaper                               |");
+                Console.WriteLine("|4.View book Issue Details                        |");
+                Console.WriteLine("|5.View available copies of book                  |");
+                Console.WriteLine("|6.View available copies of Newspaper             |");
+                Console.WriteLine("|7.Borrow Newspaper                               |");
+                Console.WriteLine("|8.Return Newspaper                               |");
                 Console.WriteLine("|9.Return to main menu                            |");
                 Console.WriteLine("***************************************************");
                 Console.WriteLine("");
@@ -89,7 +99,7 @@ namespace cs_con_sblib
                 switch (ch)
                 {
                     case 1:
-                        Console.WriteLine("Enter the name of the book");
+                        Console.WriteLine("Enter the ID of the book");
                         String name = Console.ReadLine();
 
                         bool p = l.searchB(name);
@@ -100,78 +110,121 @@ namespace cs_con_sblib
                         break;
 
                     case 2:
-                        Console.WriteLine("Enter the book you want to return");
-                        String g = Console.ReadLine();
-
-                        l.returnBook(g);
+                        Console.WriteLine("Enter the ID of the book you want to return");
+                        String sn = Console.ReadLine();
+                        Console.WriteLine("Enter the no. of copies you want to return");
+                        int ner = int.Parse(Console.ReadLine());
+                        for (int i = 0; i < 5; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                String sd = book[i, j].ToString();
+                                if (sd.Equals(sn))
+                                {
+                                    book[i, j + 1] = (int)book[i, j + 1] + ner;
+                                    break;
+                                }
+                            }
+                        }
                         break;
 
                     case 3:
-                        Console.WriteLine("Enter the name of the book");
-                        String y = Console.ReadLine();
+                        Console.WriteLine("Enter the ID of the book you want to borrow");
+                        String sn1 = Console.ReadLine();
+                        Console.WriteLine("Enter the no. of copies you want to borrow");
+                        int n2 = int.Parse(Console.ReadLine());
                         Console.WriteLine("Enter the issue date");
                         DateTime t = Convert.ToDateTime(Console.ReadLine());
-                        l.borrow(y, t);
+                        l.borrow(sn1, t);
+                        for (int i = 0; i < 5; i++)
+                        {
+                            for (int j = 0; j < 1; j++)
+                            {
+                                String sd = book[i, j].ToString();
+                                if (sd.Equals(sn1))
+                                {
+                                    book[i, j + 1] = (int)book[i, j + 1] - n2;
+                                    break;
+                                }
+                            }
+                        }
+
                         break;
 
                     case 4:
-                        l.Details();
+                           l.Details();
+                           break;
+
+                    case 5:
+                        Console.WriteLine("Book ID " + " " + "Available copies");
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.Write(this.book[i, j] + "             ");
+                            }
+                            Console.WriteLine("");
+                        }
+
                         break;
-                   
 
-                    //case 6:
-                    //    Console.WriteLine("Newspaper name " + " " + "Available copies");
+                    case 6:
+                        Console.WriteLine("Newspaper ID " + " " + "Available copies");
 
-                    //    for (int i = 0; i < 5; i++)
-                    //    {
-                    //        for (int j = 0; j < 2; j++)
-                    //        {
-                    //            Console.Write(this.newsp[i, j] + "             ");
-                    //        }
-                    //        Console.WriteLine("");
-                    //    }
+                        for (int i = 0; i < 5; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.Write(this.newsp[i, j] + "             ");
+                            }
+                            Console.WriteLine("");
+                        }
 
-                    //    break;
+                        break;
 
 
-                    //case 7:
-                    //    Console.WriteLine("Enter the name of the books");
-                    //    String bn = Console.ReadLine();
-                    //    Console.WriteLine("Enter the no. of copies you want to add?");
-                    //    int nern = int.Parse(Console.ReadLine());
-                    //    for (int i = 0; i < 5; i++)
-                    //    {
-                    //        for (int j = 0; j < 2; j++)
-                    //        {
-                    //            String sd = newsp[i, j].ToString();
-                    //            if (sd.Equals(bn))
-                    //            {
-                    //                newsp[i, j + 1] = (int)newsp[i, j + 1] + nern;
-                    //                break;
-                    //            }
-                    //        }
-                    //    }
-                    //    break;
+                    case 7:
+                        Console.WriteLine("Enter the ID of the newspaper you want to borrow");
+                        String y1 = Console.ReadLine();
+                        Console.WriteLine("Enter the no. of copies you want to borrow");
+                        int n3 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter the issue date");
+                        DateTime t1 = Convert.ToDateTime(Console.ReadLine());
+                        l.borrowN(y1, t1);
+                        for (int i = 0; i < 5; i++)
+                        {
+                            for (int j = 0; j < 1; j++)
+                            {
+                                String sd = newsp[i, j].ToString();
+                                if (sd.Equals(y1))
+                                {
+                                    newsp[i, j + 1] = (int)newsp[i, j + 1] - n3;
+                                    break;
+                                }
+                            }
+                        }
+                        break;
 
-                    //case 8:
-                    //    Console.WriteLine("Enter the name of the books");
-                    //    String bn1 = Console.ReadLine();
-                    //    Console.WriteLine("Enter the no. of copies you want to remove");
-                    //    int np2 = int.Parse(Console.ReadLine());
-                    //    for (int i = 0; i < 5; i++)
-                    //    {
-                    //        for (int j = 0; j < 1; j++)
-                    //        {
-                    //            String sd = newsp[i, j].ToString();
-                    //            if (sd.Equals(bn1))
-                    //            {
-                    //                book[i, j + 1] = (int)newsp[i, j + 1] - n;
-                    //                break;
-                    //            }
-                    //        }
-                    //    }
-
-                    //    break;
+                    case 8:
+                        Console.WriteLine("Enter the ID of newspaper you want to return");
+                        String g1 = Console.ReadLine();
+                        Console.WriteLine("Enter the no. of copies you want to return");
+                        int nern = int.Parse(Console.ReadLine());
+                        l.returnN(g1);
+                        for (int i = 0; i < 5; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                String sd = newsp[i, j].ToString();
+                                if (sd.Equals(g1))
+                                {
+                                    newsp[i, j + 1] = (int)newsp[i, j + 1] + nern;
+                                    break;
+                                }
+                            }
+                        }
+                        break;
 
                     case 9:
 
@@ -207,6 +260,17 @@ namespace cs_con_sblib
                         ade.viewStu();
                         break;
                     case 2:
+                        Console.WriteLine("Books" + "       " + " Book ID");
+                        string[] myArray = { "Dogs-           1", "Cats-           2", "Birds-          3", "Harry Potter-   4", "Iron Man-       5" };
+                        foreach (string item in myArray)
+                            Console.WriteLine(item);
+                        Console.WriteLine();
+
+                        Console.WriteLine("Newspapers" + "               " + " Newspaper ID");
+                        string[] myArray1 = { "Lokmat-                    1", "Hindustan Times-           2", "T.O.I.-                    3", "Mumbai Mirror-             4", "Times Now-                 5" };
+                        foreach (string item in myArray1)
+                            Console.WriteLine(item);
+
                         ade.catalogue();
                         break;
                     case 3:
